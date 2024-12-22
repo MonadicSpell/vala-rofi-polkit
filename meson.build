@@ -16,7 +16,7 @@ add_project_arguments('-DPOLKIT_AGENT_I_KNOW_API_IS_SUBJECT_TO_CHANGE', language
 
 sources = files('main.vala')
 
-executable('vala-rofi-polkit',
+executable('vala-polkit-forwarder',
   sources,
   dependencies: dependencies,
 )

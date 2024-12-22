@@ -15,13 +15,13 @@ build: $(SETUP_DONE)
 
 .PHONY: install
 install: build
-	cp $(BUILD_DIR)/vala-rofi-polkit $(PREFIX)/bin/
-	cp ./rofi-polkit.sh $(PREFIX)/bin/
+	cp $(BUILD_DIR)/vala-polkit-forwarder $(PREFIX)/bin/
+	cp ./vala-polkit-rofi $(PREFIX)/bin/
 
 .PHONY: uninstall
 uninstall:
-	rm -rf $(PREFIX)/bin/vala-rofi-polkit
-	rm -rf $(PREFIX)/bin/rofi-polkit.sh
+	rm -rf $(PREFIX)/bin/vala-polkit-forwarder
+	rm -rf $(PREFIX)/bin/vala-polkit-rofi
 
 .PHONY: clean
 clean:

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd)"
+  SCRIPT_PATH="$SCRIPT_DIR/$(basename "${BASH_SOURCE[0]}")"
+
+  vala-polkit-forwarder bash "${SCRIPT_PATH}" &
+else
+  MSG_THEME='entry { enabled: false; } inputbar { children: [ "prompt"]; }'
+  
+  if [[ "$1" = "auth" ]]; then
+    res="$(printf '' | rofi  -dmenu -p "$2" -mesg "$3" -password -no-fixed-num-lines)"
+  
+    if [[ -z $res ]]; then
+      echo "cancel"
+    else
+      echo password "$res"
+    fi
+  else
+    rofi -theme-str "$MSG_THEME" -no-fixed-num-lines -dmenu -p "$1:" -mesg "$2"
+  fi
+fi

@@ -33,7 +33,7 @@ A tool crafted to employ Rofi, or any other program executable via a Bash script
 In your .xinitrc, invoke:
 
 ```bash
-  vala-rofi-polkit bash /usr/local/bin/rofi-polkit.sh &
+  vala-polkit-rofi
 ```
 
 ## License
